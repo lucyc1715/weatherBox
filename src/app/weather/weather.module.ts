@@ -1,4 +1,4 @@
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './../shared/material.module';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
@@ -16,7 +16,8 @@ import { WeatherSearchComponent } from './weather-search/weather-search.componen
     SharedModule,
     MaterialModule,
     WeatherRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     WeatherViewComponent,
