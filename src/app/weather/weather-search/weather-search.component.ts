@@ -14,8 +14,6 @@ export class WeatherSearchComponent implements OnInit {
 
   query: string = '';
   errMsg: any = {};
-  email = new FormControl('', [Validators.required, Validators.email]);
-  hide: boolean = true;
 
   constructor(private weatherService: WeatherService,
     private weatherDataService: WeatherDataService) { }
@@ -36,14 +34,4 @@ export class WeatherSearchComponent implements OnInit {
         () => this.query = ''
       );
   }
-
-
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-  }
-
 }

@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'weather',
     loadChildren: () => import('./weather/weather.module').then(mod => mod.WeatherModule)
   },
+  {
+    path: 'user',
+    loadChildren: () => import('./user/user.module').then(mod => mod.UserModule)
+  },
 ];
 
 @NgModule({

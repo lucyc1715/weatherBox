@@ -1,0 +1,48 @@
+.tab {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.card {
+  max-width: 500px;
+  margin-bottom: 8px;
+  border: solid black 1px;
+  margin-top: 20px;
+  padding-bottom: 25px;
+}
+
+.form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.card-tit {
+  margin: 10px 10px 20px 10px;
+}
+
+// iphone 6
+@media (min-width: 360px) and (max-width: 400px) {
+  .tab {
+    padding: 0px 20px;
+  }
+}
+
+// iphone 6 plus
+@media (min-width: 401px) and (max-width: 480px) {
+  .tab {
+    padding: 0px 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .tab {
+    padding: 0px 20px;
+  }
+}

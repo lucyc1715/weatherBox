@@ -1,95 +1,20 @@
-<form class="example-form cust">
-  <mat-form-field class="example-full-width mt-10">
-    <mat-label>Search Cities</mat-label>
-    <input matInput name="query" placeholder="Search Cities" [(ngModel)]="query">
-    <button *ngIf="query" matSuffix mat-icon-button aria-label="Clear" (click)="query=''">
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-form-field>
+<div class="cust-box">
+  <form class="example-form">
+    <mat-form-field class="example-full-width mt-10">
+      <mat-label>Search Cities</mat-label>
+      <input matInput name="query" placeholder="Search Cities" [(ngModel)]="query">
+      <button *ngIf="query" matSuffix mat-icon-button aria-label="Clear" (click)="query=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
 
-  <div class="button-row" style="margin-left: 10px;">
-    <button mat-raised-button color="primary" (click)="search(query)">Submit</button>
-  </div>
-</form>
+    <div class="button-row" style="margin-left: 10px;">
+      <button mat-raised-button color="primary" (click)="search(query)">Submit</button>
+    </div>
+  </form>
+</div>
 
 <div *ngIf="errMsg?.message" class="container">
   {{ errMsg.cod }} | {{ errMsg.message }}
 </div>
 <!-- {{ weather?.city }} | {{ weather?.main.temp}} -->
-
-<!-- TODO add auth ui -->
-<mat-tab-group dynamicHeight style="max-width: 600px; margin-top: 30px;">
-  <mat-tab label="Sign in">
-
-    <mat-card class="example-card">
-      <mat-card-title-group>
-        <mat-card-title class="card-tit">Signing in</mat-card-title>
-      </mat-card-title-group>
-
-      <mat-card-content>
-        <form class="form">
-          <mat-form-field class="input-full-width" appearance="fill">
-            <mat-label>Email</mat-label>
-            <input type="email" matInput [formControl]="email" placeholder="Ex. pat@example.com">
-            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
-              Please enter a valid email address
-            </mat-error>
-            <mat-error *ngIf="email.hasError('required')">
-              Email is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-
-          <mat-form-field class="input-full-width" appearance="fill">
-            <mat-label>Enter your password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'">
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-          </mat-form-field>
-        </form>
-        <button mat-raised-button color="primary" class="input-full-width">Primary</button>
-      </mat-card-content>
-
-    </mat-card>
-  </mat-tab>
-
-  <mat-tab label="Register">
-    <mat-card class="example-card">
-
-      <mat-card-title-group>
-        <mat-card-title class="card-tit">Registration</mat-card-title>
-      </mat-card-title-group>
-
-      <mat-card-content>
-        <form class="form">
-          <mat-form-field class="input-full-width" appearance="fill">
-            <mat-label>Name</mat-label>
-            <input matInput  placeholder="John">
-          </mat-form-field>
-
-          <mat-form-field class="input-full-width" appearance="fill">
-            <mat-label>Email</mat-label>
-            <input type="email" matInput [formControl]="email" placeholder="Ex. pat@example.com">
-            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
-              Please enter a valid email address
-            </mat-error>
-            <mat-error *ngIf="email.hasError('required')">
-              Email is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-
-          <mat-form-field class="input-full-width" appearance="fill">
-            <mat-label>Enter your password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'">
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-          </mat-form-field>
-        </form>
-        <button mat-raised-button color="primary" class="input-full-width">Register</button>
-      </mat-card-content>
-
-    </mat-card>
-  </mat-tab>
-</mat-tab-group>
-

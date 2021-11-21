@@ -1,0 +1,85 @@
+<mat-tab-group dynamicHeight class="tab">
+  <mat-tab label="Sign in">
+
+    <mat-card class="card">
+      <mat-card-title-group>
+        <mat-card-title class="card-tit">Signing in</mat-card-title>
+      </mat-card-title-group>
+
+      <mat-card-content>
+        <form class="form">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput [formControl]="email" placeholder="Ex. pat@example.com">
+            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="email.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </form>
+        <button mat-raised-button color="primary" class="full-width">Log In</button>
+        <button mat-button color="primary" class="full-width">Forgot Password?</button>
+      </mat-card-content>
+
+    </mat-card>
+  </mat-tab>
+
+  <mat-tab label="Register">
+    <mat-card class="card">
+
+      <mat-card-title-group>
+        <mat-card-title class="card-tit">Registration</mat-card-title>
+      </mat-card-title-group>
+
+      <mat-card-content>
+        <form class="form" #f="ngForm">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput
+              type="text"
+              placeholder="John"
+              name="username">
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput
+              type="email"
+              placeholder="Ex. pat@example.com"
+              [formControl]="email"
+              name="email">
+            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="email.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput
+              [type]="hide ? 'password' : 'text'"
+              name="pwd">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </form>
+        <button mat-raised-button color="primary" class="full-width" (click)="onSubmit(f)">Register</button>
+        <button mat-button color="primary" class="full-width">as Gugest</button>
+      </mat-card-content>
+
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>

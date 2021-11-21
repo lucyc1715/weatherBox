@@ -1,3 +1,62 @@
-.container-top {
+.cust-box {
   margin-top: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.weather-search {
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  max-width: 40%;
+  flex: 1 1 40%;
+  text-align: center;
+}
+
+.weather-item {
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  max-width: 50%;
+  flex: 1 1 50%;
+}
+
+// iphone 6
+@media (min-width: 360px) and (max-width: 400px) {
+  .weather-search {
+    max-width: 80%;
+    flex: 1 1 80%;
+    text-align: left;
+  }
+
+  .weather-item {
+    max-width: 80%;
+    flex: 1 1 80%;
+  }
+}
+
+// iphone 6 plus
+@media (min-width: 401px) and (max-width: 480px) {
+  .weather-search {
+    max-width: 80%;
+    flex: 1 1 80%;
+    text-align: left;
+  }
+
+  .weather-item {
+    max-width: 80%;
+    flex: 1 1 80%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .weather-search {
+    max-width: 80%;
+    flex: 1 1 80%;
+    text-align: left;
+  }
+
+  .weather-item {
+    max-width: 80%;
+    flex: 1 1 80%;
+  }
 }
