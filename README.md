@@ -5,7 +5,7 @@ This project is Angular framework with Firebase
 ## Features
 Let's getting started our journey on Angular. 
 
-``` mermaid
+```mermaid
 graph LR;
 Weather-box-->Account;
 Weather-box-->Weather;
@@ -22,6 +22,7 @@ Firebase-->Cloud-Database;
 Auth-Info-->GitHub;
 Auth-Info-->LinkedIn;
 ```
+
 Here contains all of features that will implement into this project.
 
 ### Account
