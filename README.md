@@ -3,26 +3,6 @@
 This project is Angular framework with Firebase
 
 ## Features
-Let's getting started our journey on Angular. 
-
-```mermaid
-graph LR;
-Weather-box-->Account;
-Weather-box-->Weather;
-Weather-box-->Firebase;
-Weather-box-->Auth-Info;
-Account-->Login;
-Account-->Logout;
-Account-->Register;
-Account-->Profile;
-Weather-->Search;
-Weather-->Saved-Citeis;
-Firebase-->Auth;
-Firebase-->Cloud-Database;
-Auth-Info-->GitHub;
-Auth-Info-->LinkedIn;
-```
-
 Here contains all of features that will implement into this project.
 
 ### Account
