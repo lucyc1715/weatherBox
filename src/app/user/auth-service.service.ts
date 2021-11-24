@@ -29,21 +29,22 @@ export class AuthService {
   register(authData: AuthData) {
     this.afAuth.createUserWithEmailAndPassword(authData.email, authData.pwd)
       .then(result => {
+        console.log('register result---', result);
         this.authSuccess();
       })
       .catch(error => {
-        console.log(error);
+        console.log('register result---', error);
       })
   }
 
   login(authData: AuthData) {
     this.afAuth.signInWithEmailAndPassword(authData.email, authData.pwd)
       .then(result => {
-        console.log(result);
+        console.log('login result---',result);
         this.authSuccess();
       })
       .catch(error => {
-        console.log(error);
+        console.log('login result---',error);
       })
   }
 

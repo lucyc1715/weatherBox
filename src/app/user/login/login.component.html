@@ -7,27 +7,54 @@
       </mat-card-title-group>
 
       <mat-card-content>
-        <form class="form">
+        <form class="form" #s="ngForm" (ngSubmit)="onLogIn()">
           <mat-form-field class="full-width" appearance="fill">
             <mat-label>Email</mat-label>
-            <input type="email" matInput [formControl]="email" placeholder="Ex. pat@example.com">
-            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+            <input matInput
+              type="email"
+              placeholder="Ex. pat@example.com"
+              name="email"
+              ngModel
+              required
+              email
+              #email="ngModel">
+            <mat-error *ngIf="email.errors?.['email'] && !email.errors?.['required']">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="email.errors?.['required']">
+              Email is <strong>required</strong>
+            </mat-error>
+            <!-- <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
               Please enter a valid email address
             </mat-error>
             <mat-error *ngIf="email.hasError('required')">
               Email is <strong>required</strong>
-            </mat-error>
+            </mat-error> -->
           </mat-form-field>
 
           <mat-form-field class="full-width" appearance="fill">
             <mat-label>Enter your password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'">
+            <input matInput
+              [type]="hide ? 'password' : 'text'"
+              name="pwd"
+              ngModel
+              required
+              minlength="6"
+              maxlength="10"
+              #pwd="ngModel">
+            <mat-error *ngIf="pwd.errors?.['minlength']">Minimum is 6 letters</mat-error>
+            <mat-error *ngIf="pwd.errors?.['password'] && !pwd.errors?.['required']">
+              Please enter a valid password
+            </mat-error>
+            <mat-error *ngIf="pwd.errors?.['required']">
+              Password is <strong>required</strong>
+            </mat-error>
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
           </mat-form-field>
+          <button mat-raised-button color="primary" class="full-width" [disabled]="!s.form.valid">Log In</button>
         </form>
-        <button mat-raised-button color="primary" class="full-width">Log In</button>
         <button mat-button color="primary" class="full-width">Forgot Password?</button>
       </mat-card-content>
 
@@ -42,13 +69,22 @@
       </mat-card-title-group>
 
       <mat-card-content>
-        <form class="form" #f="ngForm">
+        <form class="form" #f="ngForm" (ngSubmit)="onSubmit()">
           <mat-form-field class="full-width" appearance="fill">
             <mat-label>Name</mat-label>
             <input matInput
               type="text"
               placeholder="John"
-              name="username">
+              name="username"
+              ngModel
+              required
+              minlength="6"
+              maxlength="10"
+              #username="ngModel">
+            <mat-error *ngIf="username.errors?.['minlength']">Minimum is 6 letters</mat-error>
+            <mat-error *ngIf="username.errors?.['required']">
+              Username is <strong>required</strong>
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field class="full-width" appearance="fill">
@@ -56,12 +92,15 @@
             <input matInput
               type="email"
               placeholder="Ex. pat@example.com"
-              [formControl]="email"
-              name="email">
-            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+              name="email"
+              ngModel
+              required
+              email
+              #email="ngModel">
+            <mat-error *ngIf="email.errors?.['email'] && !email.errors?.['required']">
               Please enter a valid email address
             </mat-error>
-            <mat-error *ngIf="email.hasError('required')">
+            <mat-error *ngIf="email.errors?.['required']">
               Email is <strong>required</strong>
             </mat-error>
           </mat-form-field>
@@ -70,14 +109,29 @@
             <mat-label>Enter your password</mat-label>
             <input matInput
               [type]="hide ? 'password' : 'text'"
-              name="pwd">
+              name="pwd"
+              ngModel
+              required
+              minlength="6"
+              maxlength="10"
+              #pwd="ngModel">
+            <mat-error *ngIf="pwd.errors?.['minlength']">Minimum is 6 letters</mat-error>
+            <mat-error *ngIf="pwd.errors?.['password'] && !pwd.errors?.['required']">
+              Please enter a valid password
+            </mat-error>
+            <mat-error *ngIf="pwd.errors?.['required']">
+              Password is <strong>required</strong>
+            </mat-error>
+
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
           </mat-form-field>
+
+          <button mat-raised-button color="primary" class="full-width" [disabled]="!f.form.valid">Register</button>
+          <button mat-button color="primary" class="full-width" [disabled]="!f.form.valid">as Gugest</button>
+
         </form>
-        <button mat-raised-button color="primary" class="full-width" (click)="onSubmit(f)">Register</button>
-        <button mat-button color="primary" class="full-width">as Gugest</button>
       </mat-card-content>
 
     </mat-card>
