@@ -32,3 +32,6 @@ Here contains all of features that will implement into this project.
 - receive notification
 - with or without Internet access search or play songs
 - i18n
+
+ng g i shared/interfaces/city
+ng g s shared/firebase --flat

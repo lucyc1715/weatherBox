@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/user/auth-service.service';
 })
 export class ToolbarComponent {
 
+  isLogin: boolean = false;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -18,6 +19,11 @@ export class ToolbarComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver,
-    public userAuth: AuthService) { }
+              public userAuth: AuthService) {
+                this.userAuth.authChange.subscribe( state => {
+                  this.isLogin = state;
+                  console.log('--LoginState--', this.isLogin);
+                });
+              }
 
 }

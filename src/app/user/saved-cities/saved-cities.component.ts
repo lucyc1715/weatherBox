@@ -1,4 +1,7 @@
+import { ActivatedRoute } from '@angular/router';
+import { FirebaseService } from './../../shared/firebase.service';
 import { Component, OnInit } from '@angular/core';
+import { City } from 'src/app/shared/interfaces/city';
 
 @Component({
   selector: 'app-saved-cities',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SavedCitiesComponent implements OnInit {
 
-  constructor() { }
+  cities: City[] | undefined;
+  city: any = {};
+  panelOpenState: boolean = false;
+  updateForm: boolean = false;
+  saveForm: boolean = true;
+
+  // keep update userId
+  userId = this.route.snapshot.paramMap.get('id');
+
+  constructor(private firebaseService: FirebaseService,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    const param = this.route.snapshot.paramMap.get('id');
+    if(param) {
+      console.log(param);
+      const id = param;
+    }
   }
 
 }

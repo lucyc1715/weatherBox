@@ -54,10 +54,10 @@
             </button>
           </mat-form-field>
           <button mat-raised-button color="primary" class="full-width" [disabled]="!s.form.valid">Log In</button>
+          <hr>
         </form>
-        <button mat-button color="primary" class="full-width">Forgot Password?</button>
       </mat-card-content>
-
+      <button mat-button color="warn" class="full-width" (click)="googleLogin()">Login with Google</button>
     </mat-card>
   </mat-tab>
 
@@ -129,9 +129,8 @@
           </mat-form-field>
 
           <button mat-raised-button color="primary" class="full-width" [disabled]="!f.form.valid">Register</button>
-          <button mat-button color="primary" class="full-width" [disabled]="!f.form.valid">as Gugest</button>
-
         </form>
+        <button mat-button color="primary" class="full-width" [disabled]="!f.form.valid"  (click)="anonymLogin()">as Gugest</button>
       </mat-card-content>
 
     </mat-card>

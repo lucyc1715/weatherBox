@@ -7,7 +7,7 @@
       <!-- TODO after login show saved cities -->
       <!-- *ngIf="(userAuth.user$ |async)?.uid" -->
       <a mat-list-item
-        class="menu-link"
+      class="menu-link"
         [routerLink]="['/user/cities']">
         Save Cities</a>
     </mat-nav-list>
@@ -23,15 +23,15 @@
 
       <span class="spacer"></span>
       <span>
-        <a *ngIf="!(userAuth.user$ | async)?.uid"
+        <a *ngIf="!isLogin"
            class="bg-color"
            [routerLink]="['/user/login']"
            >Login</a>
-        <a *ngIf="(userAuth.user$ | async)?.uid"
+        <a *ngIf="isLogin"
            class="bg-color"
            [routerLink]="['/user/profile']"
            >Profile</a>
-        <a *ngIf="(userAuth.user$ | async)?.uid"
+        <a *ngIf="isLogin"
            class="bg-color"
            (click)="userAuth.logout()"
            >Logout</a>

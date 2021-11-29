@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // Log In
+  // Login
   onLogIn() {
     console.log('sign in!', this.signInForm.form.value);
     const email = this.signInForm.form.value.email;
@@ -39,5 +39,17 @@ export class LoginComponent implements OnInit {
     const email = this.registerForm.form.value.email;
     const pwd = this.registerForm.form.value.pwd;
     this.authService.register({ email: email, pwd: pwd });
+  }
+
+  // Google Login
+  googleLogin() {
+    console.log('Google Sign in!');
+    this.authService.googleLogin();
+  }
+
+  // Gugest Login
+  anonymLogin() {
+    console.log('Anonymously Sign in!');
+    this.authService.anonymLogin();
   }
 }
