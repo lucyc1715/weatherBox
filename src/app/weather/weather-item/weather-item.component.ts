@@ -29,36 +29,37 @@ export class WeatherItemComponent implements OnInit {
     return this.weatherDataService.weather;
   }
 
-  user$!: User;
+  userId: string | undefined;
   constructor(private weatherDataService: WeatherDataService,
               private authService: AuthService,
               private firebaseService: FirebaseService,
               private snackBar: MatSnackBar) {
-                // this.userAuthService.user$.subscribe(user => this.user$ = user);
-                // this.authService.user$.subscribe( user => )
+                this.authService.user$.subscribe(user => this.userId = user?.uid);
+                console.log('userid--', this.userId);
               }
 
   ngOnInit(): void {
   }
 
+  // TODO add uid with weather
   addCity(weather: Weather){
-    const city: City = {
-      name: this.weather.city,
-      country: this.weather.country,
-      desc: this.weather.desc,
-      temp: this.weather.temp,
-      lat: this.weather.lat,
-      lon: this.weather.lon
-    };
-    this.firebaseService
-        .addCity(this.user$.uid, city)
-        .then( (res) => {
-          this.snackBar.open(`success! City saved`, 'OK', {
-            duration: 5000
-          });
-        })
-        .catch((err) => {
-          console.log(err);
-        })
+    // const city: City = {
+    //   name: this.weather.city,
+    //   country: this.weather.country,
+    //   desc: this.weather.desc,
+    //   temp: this.weather.temp,
+    //   lat: this.weather.lat,
+    //   lon: this.weather.lon
+    // };
+    // this.firebaseService
+    //     .addCity(this.user$.uid, city)
+    //     .then( (res) => {
+    //       this.snackBar.open(`success! City saved`, 'OK', {
+    //         duration: 5000
+    //       });
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     })
   }
 }

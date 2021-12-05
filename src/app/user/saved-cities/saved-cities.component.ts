@@ -22,6 +22,7 @@ export class SavedCitiesComponent implements OnInit {
   constructor(private firebaseService: FirebaseService,
               private route: ActivatedRoute) { }
 
+  // TODO add uid with weather
   ngOnInit(): void {
     const param = this.route.snapshot.paramMap.get('id');
     if(param) {

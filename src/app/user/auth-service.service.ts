@@ -1,12 +1,12 @@
+import { User } from 'src/app/shared/interfaces/user';
 import { AuthData } from './../shared/interfaces/user';
 import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { User } from '../shared/interfaces/user';
 import firebase from 'firebase/compat/app';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +15,20 @@ export class AuthService {
 
   // Observable
   authChange = new Subject<boolean>();
+
+  user$!: Observable<User | null>;
+
   private isAuthed: boolean = false;
 
   constructor(private router: Router,
               private afAuth: AngularFireAuth,
+              private db: AngularFirestore,
               private snackBar: MatSnackBar) {
+              this.user$ = this.afAuth.authState;
   }
 
   initAuthListener() {
+    this.user$ = this.afAuth.authState;
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.isAuthed = true;
@@ -38,32 +44,44 @@ export class AuthService {
 
   register(authData: AuthData) {
     this.afAuth.createUserWithEmailAndPassword(authData.email, authData.pwd)
-      .then(result => {
-        console.log('register result---', result);
-        // this.authSuccess();
+      .then(res => {
+        console.log('Email register result---', res);
+        this.addToDb({
+          uid: res.user?.uid,
+          email: res.user?.email,
+          photoURL: res.user?.photoURL,
+          displayName: res.user?.displayName,
+          providerId: res.user?.providerId,
+        }, 'Email');
       })
       .catch(error => {
-        console.log('register result---', error);
+        console.log('Email register result---', error);
       })
   }
 
   googleLogin() {
     this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-      .then(result => {
-        console.log('google login result---',result);
-        // this.authSuccess();
+      .then(res => {
+        console.log('Google Sign In result---',res);
+        if(res.additionalUserInfo?.isNewUser) {
+          this.addToDb({
+            uid: res.user?.uid,
+            email: res.user?.email,
+            photoURL: res.user?.photoURL,
+            displayName: res.user?.displayName,
+            providerId: res.credential?.providerId,
+          }, 'Google');
+        }
       })
       .catch(error => {
-        console.log('google login result---',error);
+        console.log('Google Sign In result---',error);
       });
   }
 
   anonymLogin() {
     this.afAuth.signInAnonymously()
-    .then((user) => {
-      console.log('Anonymously login result---',user);
-
-      // this.authSuccess();
+    .then((res) => {
+      console.log('Anonymously login result---',res);
     })
     .catch(error =>{
       console.log('Anonymously login result---',error);
@@ -73,11 +91,10 @@ export class AuthService {
   login(authData: AuthData) {
     this.afAuth.signInWithEmailAndPassword(authData.email, authData.pwd)
       .then(result => {
-        console.log('email login result---',result);
-        // this.authSuccess();
+        console.log('Email login result---',result);
       })
       .catch(error => {
-        console.log('email login result---',error);
+        console.log('Email login result---',error);
       })
   }
 
@@ -95,9 +112,9 @@ export class AuthService {
     return this.isAuthed;
   }
 
-  // private authSuccess() {
-  //   this.isAuthed = true;
-  //   this.router.navigate(['/user/cities']);
-  // }
-
+  addToDb(user: User, registeType: string) {
+    this.db.collection('users').add(user).then(res => {
+      console.log(`${registeType} user add db success`);
+    })
+  }
 }

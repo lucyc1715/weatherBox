@@ -11,6 +11,7 @@ export class FirebaseService {
 
   constructor(private afs: AngularFirestore) { }
 
+  // TODO add uid with weather
   addCity(userId: string, weather: any) {
     const city = {
       weather,

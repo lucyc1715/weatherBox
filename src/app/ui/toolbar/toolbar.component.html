@@ -5,9 +5,9 @@
     <mat-nav-list>
       <a mat-list-item [routerLink]="['/weather']">Home</a>
       <!-- TODO after login show saved cities -->
-      <!-- *ngIf="(userAuth.user$ |async)?.uid" -->
-      <a mat-list-item
-      class="menu-link"
+      <a *ngIf="isLogin"
+        mat-list-item
+        class="menu-link"
         [routerLink]="['/user/cities']">
         Save Cities</a>
     </mat-nav-list>

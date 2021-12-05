@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/user/auth-service.service';
 export class ToolbarComponent {
 
   isLogin: boolean = false;
+  userId: string = '';
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
