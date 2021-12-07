@@ -11,15 +11,12 @@ export class FirebaseService {
 
   constructor(private afs: AngularFirestore) { }
 
-  // TODO add uid with weather
-  addCity(userId: string, weather: any) {
+  addCity(userId: any, weather: any) {
+    console.log('firestore uid--', userId);
     const city = {
       weather,
       time: new Date()
     }
-    return this.userCollection
-               .doc(userId)
-               .collection('cities')
-               .add(city)
+    return this.userCollection.doc(userId).collection('cities').add(city);
   }
 }

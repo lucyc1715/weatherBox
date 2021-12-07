@@ -56,6 +56,9 @@ export class AuthService {
       })
       .catch(error => {
         console.log('Email register result---', error);
+        this.snackBar.open(`The email address is already in use by another account`, 'OK', {
+          duration: 5000
+        });
       })
   }
 
@@ -113,8 +116,11 @@ export class AuthService {
   }
 
   addToDb(user: User, registeType: string) {
-    this.db.collection('users').add(user).then(res => {
+    this.db.collection('users').doc(user.uid).set(user).then( res => {
       console.log(`${registeType} user add db success`);
     })
+    // doc would gen pk rather than uid as pk.
+    // this.db.collection('users').add(user)
+
   }
 }
