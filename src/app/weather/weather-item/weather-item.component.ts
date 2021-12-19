@@ -37,8 +37,7 @@ export class WeatherItemComponent implements OnInit {
                 this.authService.user$.subscribe(user => {
                   const isLogin = this.authService.isAuth();
                   if(isLogin) {
-                    this.userId = user?.uid
-                    console.log('weather item userId--', this.userId);
+                    this.userId = user?.uid;
                   }
                 });
               }

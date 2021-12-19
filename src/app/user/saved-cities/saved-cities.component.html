@@ -21,44 +21,50 @@
                  placeholder="temperature"
                  [(ngModel)]="city.temp">
         </mat-form-field>
-        <div *ngIf="saveForm" class="button-row" style="margin-left: 10px;">
+        <!-- <div *ngIf="saveForm" class="button-row" style="margin-left: 10px;">
           <button mat-raised-button
                   color="primary">Submit</button>
-        </div>
+        </div> -->
         <div *ngIf="updateForm" class="button-row" style="margin-left: 10px;">
           <button mat-raised-button
+          (click)="saveCityUpdate(city)"
                   color="primary">Update</button>
         </div>
       </form>
   </div>
 
   <div fxFlex="40%">
-    <mat-accordion>
+    <mat-accordion *ngFor="let city of cities">
       <mat-expansion-panel (opened)="panelOpenState = true"
                            (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            Weather Name
+            {{city?.weather.name }}
           </mat-panel-title>
           <mat-panel-description>
-            Weather description
+            {{city?.weather.desc }} | Temp: {{city?.weather.temp | number: '1.0-0' }}
           </mat-panel-description>
         </mat-expansion-panel-header>
-        Temperature
-        <button mat-button mat-suffix mat-icon-button
-                  color="warn"
-                  class="delete-button"
-                  aria-label="Delete"
-                  matTooltip="Delete city">
-          <mat-icon>delete</mat-icon>
-        </button>
-        <button mat-button mat-suffix mat-icon-button
-                  color="primary"
-                  class="update-button"
-                  aria-label="Delete"
-                  matTooltip="Update city">
-          <mat-icon>edit</mat-icon>
-        </button>
+
+        <div style="text-align: center;">
+          <button mat-button mat-suffix mat-icon-button
+                    color="warn"
+                    class="delete-button"
+                    aria-label="Delete"
+                    (click)="deleteCity(city.id)"
+                    matTooltip="Delete city">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-button mat-suffix mat-icon-button
+                    color="primary"
+                    class="update-button"
+                    aria-label="Update"
+                    (click)="updateCity(city)"
+                    matTooltip="Update city">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+
       </mat-expansion-panel>
     </mat-accordion>
   </div>

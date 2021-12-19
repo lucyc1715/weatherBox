@@ -33,7 +33,7 @@ export class AuthService {
       if (user) {
         this.isAuthed = true;
         this.authChange.next(true);
-        this.router.navigate(['/user/cities']);
+        this.router.navigate(['/user/cities', user.uid]);
       } else {
         this.authChange.next(false);
         this.router.navigate(['/weather']);
