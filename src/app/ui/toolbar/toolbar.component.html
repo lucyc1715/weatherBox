@@ -29,7 +29,7 @@
            >Login</a>
         <a *ngIf="isLogin"
            class="bg-color"
-           [routerLink]="['/user/profile']"
+           [routerLink]="['/user/profile', uid]"
            >Profile</a>
         <a *ngIf="isLogin"
            class="bg-color"

@@ -1,3 +1,4 @@
+import { User } from 'src/app/shared/interfaces/user';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -49,12 +50,26 @@ export class FirebaseService {
     return this.getCity(userId, city).delete();
   }
 
-  updateCity(userId: any, city: City, weather?: Weather) {
-    console.log(`firebaseService: updateCity - city: ${city} weather:  ${JSON.stringify(weather)}`);
+  updateCity(userId: any, cityId: City, weather?: Weather) {
+    console.log(`firebaseService: updateCity - city: ${cityId} weather:  ${JSON.stringify(weather)}`);
     const newCity = {
       weather,
       time: new Date(),
     };
-    return this.getCity(userId, city).set(newCity);
+    return this.getCity(userId, cityId).set(newCity);
+  }
+
+  getUserInfo(userId: string){
+    return this.afs.collection('users').doc(`/${userId}`);
+  }
+
+  updateUserInfo(userId: string, userInfo: User) {
+    console.log(`firebaseService: updateUserInfo - user: ${JSON.stringify(userInfo)}`);
+    return this.afs.doc(`users/${userId}`).update({
+      displayName: userInfo.displayName,
+      email: userInfo.email,
+      link: userInfo.link,
+      lastUpdateTime: new Date()
+    })
   }
 }

@@ -16,7 +16,6 @@ export class SavedCitiesComponent implements OnInit {
   city: any = {};
   panelOpenState: boolean = false;
   updateForm: boolean = true;
-  // saveForm: boolean = true;
 
   // keep update userId
   userId: any = '';
@@ -37,7 +36,6 @@ export class SavedCitiesComponent implements OnInit {
         .subscribe(
           cities => {
             this.cities = cities;
-            console.log(this.cities);
           }
         )
   }

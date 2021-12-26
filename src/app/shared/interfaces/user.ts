@@ -4,6 +4,7 @@ export interface User {
   photoURL?: string | null;
   displayName?: string | null;
   providerId?: string | null;
+  link?: string;
 }
 
 export interface AuthData {
