@@ -1,7 +1,6 @@
 <div class="cust-box">
 
-  <div fxFlex="30%"
-       fxFlexOffset="250px">
+  <div class="edit-panel">
        <form class="example-form">
         <mat-form-field class="example-full-width">
           <input matInput
@@ -29,7 +28,7 @@
       </form>
   </div>
 
-  <div fxFlex="40%">
+  <div class="saved-cities-panel">
     <mat-accordion *ngFor="let city of cities">
       <mat-expansion-panel (opened)="panelOpenState = true"
                            (closed)="panelOpenState = false">
@@ -42,7 +41,7 @@
           </mat-panel-description>
         </mat-expansion-panel-header>
 
-        <div style="text-align: center;">
+        <div class="saved-cities">
           <button mat-button mat-suffix mat-icon-button
                     color="warn"
                     class="delete-button"

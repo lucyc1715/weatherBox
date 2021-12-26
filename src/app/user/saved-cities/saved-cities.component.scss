@@ -14,3 +14,36 @@
 .example-full-width {
   width: 100%;
 }
+
+.saved-cities {
+  text-align: center;
+}
+
+.edit-panel {
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  max-width: 40%;
+  flex: 1 1 40%;
+  text-align: center;
+}
+
+.saved-cities-panel {
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  max-width: 50%;
+  flex: 1 1 50%;
+}
+
+// from iphone 5/SE to iphone X
+@media (min-width: 320px) and (max-width: 1023px) {
+  .edit-panel {
+    max-width: 80%;
+    flex: 1 1 80%;
+    text-align: left;
+  }
+
+  .saved-cities-panel {
+    max-width: 80%;
+    flex: 1 1 80%;
+  }
+}
