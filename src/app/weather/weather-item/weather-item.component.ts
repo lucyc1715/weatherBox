@@ -57,7 +57,7 @@ export class WeatherItemComponent implements OnInit {
     this.firebaseService
         .addCity(this.userId, city)
         .then( (res) => {
-          this.snackBar.open(`success! City saved`, 'OK', {
+          this.snackBar.open(`Success! City Saved`, 'OK', {
             duration: 5000
           });
         })

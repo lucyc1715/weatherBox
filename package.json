@@ -25,6 +25,7 @@
     "@angular/router": "~12.2.0",
     "@types/googlemaps": "^3.39.12",
     "firebase": "^9.2.0",
+    "firebase-tools": "^10.0.1",
     "ng-qrcode": "^6.0.0",
     "rxfire": "^6.0.0",
     "rxjs": "~6.6.0",

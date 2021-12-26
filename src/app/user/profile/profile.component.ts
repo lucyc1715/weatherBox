@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { FirebaseService } from 'src/app/shared/firebase.service';
 import { User } from 'src/app/shared/interfaces/user';
@@ -20,7 +21,8 @@ export class ProfileComponent implements OnInit {
   qrcode: string = '';
 
   constructor(private firebaseService: FirebaseService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.userId = this.route.snapshot.paramMap.get('id');
@@ -52,7 +54,15 @@ export class ProfileComponent implements OnInit {
       email: this.profileForm.get('email')?.value,
       link: this.profileForm.get('link')?.value
     }
-    this.firebaseService.updateUserInfo(this.userId, editUserInfo);
+    this.firebaseService.updateUserInfo(this.userId, editUserInfo)
+      .then( (res) => {
+        this.snackBar.open(`Success! Profile Saved`, 'OK', {
+          duration: 5000
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   genQRCode() {

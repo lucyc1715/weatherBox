@@ -12,7 +12,7 @@ import { AngularFireAnalyticsModule, ScreenTrackingService, UserTrackingService 
   imports: [
     CommonModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(), // it can save data during offline. after it get online, the data will update to db
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFireAnalyticsModule
