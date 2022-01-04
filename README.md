@@ -5,7 +5,7 @@ This is an Angular project with Firebase to implement serverless.
 Below in the following is a list should prepare before getting start:
 1. [OpenWheather API](https://openweathermap.org/current)
 2. [Google Map API](https://console.cloud.google.com/apis/dashboard?project=minion-weather&supportedpurview=project)
-3. [angualr Google Map](https://angular-maps.com/)
+3. [Angualr Google Map](https://angular-maps.com/)
 5. [angularfire](https://github.com/angular/angularfire/blob/master/docs/install-and-setup.md)
 6. [firebase console](https://console.firebase.google.com/u/0/?pli=1)
 7. [Angular Material](https://material.angular.io/components/categories)
