@@ -1,6 +1,6 @@
 # WeatherBox
 
-This is a Angular project with Firebase to implement serverless.
+This is an Angular project with Firebase to implement serverless.
 
 Below in the following is a list should prepare before getting start:
 1. [OpenWheather API](https://openweathermap.org/current)
