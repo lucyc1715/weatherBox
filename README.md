@@ -9,6 +9,7 @@ Below in the following is a list should prepare before getting start:
 5. [angularfire](https://github.com/angular/angularfire/blob/master/docs/install-and-setup.md)
 6. [firebase console](https://console.firebase.google.com/u/0/?pli=1)
 7. [Angular Material](https://material.angular.io/components/categories)
+8. [Angular Flex-Layout](https://tburleson-layouts-demos.firebaseapp.com/#/docs)
 
 ## Features
 ### Account
