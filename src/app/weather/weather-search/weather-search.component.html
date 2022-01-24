@@ -2,7 +2,10 @@
   <form class="example-form">
     <mat-form-field class="example-full-width mt-10">
       <mat-label>Search Cities</mat-label>
-      <input matInput name="query" placeholder="Search Cities" [(ngModel)]="query">
+      <input matInput
+            name="query"
+            placeholder="Search Cities"
+            [(ngModel)]="query">
       <button *ngIf="query" matSuffix mat-icon-button aria-label="Clear" (click)="query=''">
         <mat-icon>close</mat-icon>
       </button>
