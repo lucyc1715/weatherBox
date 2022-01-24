@@ -1,16 +1,17 @@
 # Weather-Box
 
 This is an Angular project with Firebase to implement serverless.
+
 [Demo](https://weather-box-3fbc7.web.app/weather) 
 
 Below in the following is a list should prepare before getting start:
 1. [OpenWheather API](https://openweathermap.org/current)
 2. [Google Map API](https://console.cloud.google.com/apis/dashboard?project=minion-weather&supportedpurview=project)
 3. [Angualr Google Map](https://angular-maps.com/)
-5. [angularfire](https://github.com/angular/angularfire/blob/master/docs/install-and-setup.md)
-6. [firebase console](https://console.firebase.google.com/u/0/?pli=1)
-7. [Angular Material](https://material.angular.io/components/categories)
-8. [Angular Flex-Layout](https://tburleson-layouts-demos.firebaseapp.com/#/docs)
+4. [angularfire](https://github.com/angular/angularfire/blob/master/docs/install-and-setup.md)
+5. [firebase console](https://console.firebase.google.com/u/0/?pli=1)
+6. [Angular Material](https://material.angular.io/components/categories)
+7. [Angular Flex-Layout](https://tburleson-layouts-demos.firebaseapp.com/#/docs)
 
 ## Features
 ### Account
@@ -37,7 +38,9 @@ Below in the following is a list should prepare before getting start:
 
 ## Troubleshooting
 - [LoadChildren](https://angular.tw/api/router/LoadChildrenCallback)
-- [ngModule no response](https://www.itread01.com/content/1548916205.html)
+
+- [ngModule cannot work](https://www.itread01.com/content/1548916205.html)
+
 - [Angular 12 cannot install agm](https://github.com/SebastianM/angular-google-maps/issues/1932)
 You can skip peer dependency conflicts checking by running `npm install --legacy-peer-deps` or you can set npm config set legacy-peer-deps true and then run npm install once again.
 - [GoogleMap downgrade to 3.39.12](https://github.com/DefinitelyTyped/DefinitelyTyped/issues/48574)
@@ -49,8 +52,7 @@ You can skip peer dependency conflicts checking by running `npm install --legacy
     type 'number | undefined' is not assignable to type 'number'.
     ```
 - [request from https to http](https://pretagteam.com/question/angular10-request-from-https-to-http-mixed-content)
-  將下列設定在最外層的index.html(app.module.ts附近的)
+  set this into index.html(app.module.ts)
   ```
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   ```
-
