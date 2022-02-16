@@ -16,11 +16,15 @@ Below in the following is a list should prepare before getting start:
 ## Features
 ### Account
 - AuthFirebase
-![](https://i.imgur.com/ND6FzgU.png =700x)
+<img src="https://i.imgur.com/ND6FzgU.png" alt="drawing" width="700"/>
 
-![](https://i.imgur.com/9JZesci.png =700x)
+<img src="https://i.imgur.com/9JZesci.png" alt="drawing" width="700"/>
 
 - Profile
+<img src="https://i.imgur.com/RwIQe0B.png" alt="drawing" width="300"/>
+
+![](https://i.imgur.com/Ncb3eTR.png)
+
 - FormModule
 - ReactiveFormModule
 - Validation
@@ -29,6 +33,9 @@ Below in the following is a list should prepare before getting start:
 - Integration Weather Open API and Google Map
 - Search city and display google map
 - Save cities by user
+<img src="https://i.imgur.com/M5VnLqq.png" alt="drawing" width="300"/>
+
+![](https://i.imgur.com/dzW0zaC.png)
 
 ### Firebase
 - Auth
